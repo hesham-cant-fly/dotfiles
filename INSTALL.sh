@@ -24,6 +24,11 @@ echo "...done"
 echo "Installing git modules"
 git submodule update --init --recursive
 
+# Set up tmp (tmux plugin manager)
+echo "Setup tmp"
+mkdir -p ~/.tmux/plugins/
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
