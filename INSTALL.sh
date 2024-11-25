@@ -7,6 +7,8 @@ dir=~/dotfiles/
 olddir=~/dotfiles_old/
 files="bashrc vimrc vim zshrc oh-my-zsh"
 
+, exi
+
 ########
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -17,6 +19,10 @@ echo "...done"
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
+
+# INSTALLING modules
+echo "Installing git modules"
+git submodule update --init --recursive
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
