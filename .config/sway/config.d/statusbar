@@ -1,0 +1,13 @@
+
+# exec waybar
+
+bar {
+  position top
+  status_command while ~/.config/sway/scripts/sway_bar.sh; do sleep 1; done
+
+  colors {
+    statusline #FFFFFF
+    background #000000AA
+    inactive_workspace #323232AA #323232AA #5c5c5cAA
+  }
+}
