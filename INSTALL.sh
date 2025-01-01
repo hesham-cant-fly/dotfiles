@@ -5,14 +5,13 @@
 
 dir=~/dotfiles/
 olddir=~/dotfiles_old/
-files="bashrc vimrc vim zshrc oh-my-zsh"
-
-, exi
+files="bashrc emacs.d"
+config_files="yazi sway swaync pip neofetch fuzzel fontconfig fish flameshot"
 
 ########
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
+mkdir -p $olddir/.config/
 echo "...done"
 
 # change to the dotfiles directory
@@ -36,5 +35,14 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+for file in $config_files; do
+    echo "Moving any existing dotfiles from ~ to $olddir"
+    mv ~/.config/$file ~/dotfiles_old/.config/
+    echo "Creating symlink to .config/$file in ~/.config"
+    ln -s ~/$dir/.config/$file ~/.config/$file
+done
+
+
 
 

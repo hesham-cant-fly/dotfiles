@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/mega-haste/highVim
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/hesham-cant-fly/.emacs.d
