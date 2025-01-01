@@ -23,9 +23,15 @@ client.focused_inactive "#23242a" "$background"   "$foreground"   "#000000"     
 client.unfocused        "#23242a" "$background"   "$foreground"   "$foreground" "#2c2c2c"
 
 # UI
-default_border none
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 2
 gaps inner 10
+
+# Window Assign
+for_window {
+    [title="emacs-run-launcher"] floating enable
+    [app_id="com.discordapp.Discord"] move to $ws2
+}
 
 exec swaync
 exec com.discordapp.Discord
@@ -37,6 +43,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -i $lockscreenbg'
 
+exec_always killall swaybg
 exec_always swaybg -m fill -i ~/Pictures/Wallpaper/3d-Desktop-Backgrounds.jpg
 
 # Lock the screen
@@ -104,10 +111,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+p floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Space focus mode_toggle
+bindsym $mod+p focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -150,6 +157,4 @@ bindsym $mod+r mode "resize"
 
 include ~/.config/sway/config.d/*
 
-
-for_window [title="emacs-run-launcher"] floating enable
 

@@ -11,6 +11,7 @@ SYNC_LIST = [
     # ".config/nvim/",
     ".config/yazi/",
     ".config/sway/",
+    ".config/waybar/",
     ".config/swaync/",
     ".config/pip/",
     ".config/neofetch/",

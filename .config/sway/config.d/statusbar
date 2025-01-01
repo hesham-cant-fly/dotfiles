@@ -1,19 +1,19 @@
-# exec waybar
+exec_always killall waybar
+exec_always waybar
 
-bar {
-  position top
-  status_command bumblebee-status \
-        -m disk cpu memory amixer datetime layout \
-        -t night-powerline
-  # while ~/.config/sway/scripts/sway_bar.sh; do sleep 1; done
-
-  height 25px
-
-  colors {
-    statusline "#222831"
-    background "#181C14"
-    inactive_workspace  "#323232" "#323232" "#5c5c5c"
-    active_workspace    "#8b9887" "#7a8676" "#ECDFCC" 
-    focused_workspace   "#8b9887" "#7a8676" "#ECDFCC" 
-  }
-}
+# bar {
+#   position top
+#   status_command bumblebee-status \
+#         -m disk cpu memory amixer datetime layout \
+#         -t night-powerline
+# 
+#   height 25px
+# 
+#   colors {
+#     statusline "#222831"
+#     background "#181C14"
+#     inactive_workspace  "#323232" "#323232" "#5c5c5c"
+#     active_workspace    "#8b9887" "#7a8676" "#ECDFCC" 
+#     focused_workspace   "#8b9887" "#7a8676" "#ECDFCC" 
+#   }
+# }
