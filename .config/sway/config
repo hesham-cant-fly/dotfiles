@@ -44,7 +44,7 @@ exec swayidle -w \
     before-sleep 'swaylock -f -i $lockscreenbg'
 
 exec_always killall swaybg
-exec_always swaybg -m fill -i ~/Pictures/Wallpaper/3d-Desktop-Backgrounds.jpg
+exec_always swaybg -m fill -i ~/Pictures/Wallpaper/cool-purple-bg.jpg
 
 # Lock the screen
 bindsym $mod+Shift+x exec "swaylock -f -i $lockscreenbg"

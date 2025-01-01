@@ -43,6 +43,14 @@
     /* background-color: @maroon; */
 }
 
+#window {
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 0.5rem;
+  /* color: @surface0; */
+  /* background-color: @green; */
+}
+
 #custom-music,
 #tray,
 #backlight,
