@@ -1,0 +1,10 @@
+#+title: dotfiles
+
+* Instalation
+#+BEGIN_SRC bash
+cd ~
+git clone https://github.com/hesham-cant-fly/dotfiles
+# Install stow
+sudo pacman -S stow
+stow --adopt .
+#+END_SRC

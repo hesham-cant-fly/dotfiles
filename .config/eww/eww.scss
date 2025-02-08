@@ -1,0 +1,61 @@
+$active-color: #01A7C2;
+$primary-color: #1A1B25;
+$text-color: #EAEBED;
+$slider-color: #7067CF;
+$secondary-color: #6969b3;
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+  font-family: monospace;
+  font-weight: 700;
+}
+
+// Global Styles
+.bar {
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric {
+    scale trough {
+        all: unset;
+        background-color: #4e4e4e;
+        border-radius: 50px;
+        min-height: 3px;
+        min-width: 50px;
+        margin-left: 10px;
+        margin-right: 20px;
+        highlight {
+            all: unset;
+            background-color: $slider-color;
+            color: #000000;
+            border-radius: 10px;
+        }
+    }
+}
+
+.label-ram {
+  font-size: large;
+}
+
+.workspaces button {
+    &:hover {
+        color: $secondary-color;
+        border-bottom: solid 1px $secondary-color;
+        // transform: scale(1.1);
+    }
+
+    &.active {
+        color: $active-color;
+        border-bottom: solid 1px $active-color;
+    }
+}
