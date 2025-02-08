@@ -7,7 +7,7 @@
     "sway/workspaces"
   ],
   "modules-center": [
-    // "custom/music",
+    "custom/music",
     "sway/window"
   ],
   "modules-right": [
@@ -27,7 +27,6 @@
     "tooltip": false,
     "icon": true,
     "icon-size": 20,
-    "offscreen-css": true,
     "format": "{title}",
     "show-focused-workspace-name": true
   },
@@ -62,7 +61,7 @@
     "max-length": 50
   },
   "clock": {
-    "timezone": "Asia/Dubai",
+    "timezone": "Africa/Morocco",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": " {:%d/%m/%Y}",
     "format": " {:%H:%M}"
@@ -87,10 +86,10 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}",
-    "format-charging": "",
-    "format-plugged": "",
-    "format-alt": "{icon}",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {capacity}%",
     "format-icons": [
       "",
       "",

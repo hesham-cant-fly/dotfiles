@@ -1,5 +1,5 @@
-exec_always killall waybar
-exec_always waybar
+# exec_always killall waybar
+exec waybar
 
 # bar {
 #   position top

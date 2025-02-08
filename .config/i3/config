@@ -24,9 +24,6 @@ font pango:System San Francisco Display 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec setxkbmap -layout fr,ara
-exec setxkbmap -option 'grp:alt_shift_toggle'
-
 exec com.discordapp.Discord
 exec com.rtosta.zapzap
 
@@ -63,7 +60,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start firefox
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-srofigoogle-chrome-stable

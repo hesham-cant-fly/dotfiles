@@ -6,20 +6,20 @@ font pango:monospace 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id /usr/lib/xdg-desktop-portal -r
-# exec --no-startup-id dex --autostart --environment sway
-# exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# exec hash dbus-update-activation-environment 2>/dev/null && \
-#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+exec --no-startup-id dex --autostart --environment sway
+exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 set $foreground "#ECDFCC"
 set $background "#3C3D37"
 
 #client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>#client.<class>         <border>  <background>    <text>      <indicator>   <child_border>
-client.focused          "#697565" "#697565"       "#ECDFCC"       "#000000"     "#697565"
-client.focused_inactive "#23242a" "$background"   "$foreground"   "#000000"     "#697565"
+client.focused          "#697565" "#697565"       "#ECDFCC"       "#697565"     "#697565"
+client.focused_inactive "#23242a" "$background"   "$foreground"   "#23242a"     "#697565"
 client.unfocused        "#23242a" "$background"   "$foreground"   "$foreground" "#2c2c2c"
 
 # UI
@@ -28,9 +28,12 @@ default_floating_border pixel 2
 gaps inner 10
 
 # Window Assign
+for_window [title="Floating Window - Show Me The Key"] {
+  floating enable
+  sticky enable
+}
 for_window {
     [title="emacs-run-launcher"] floating enable
-    [app_id="com.discordapp.Discord"] move to $ws2
 }
 
 exec swaync
@@ -43,7 +46,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -i $lockscreenbg'
 
-exec_always killall swaybg
+# exec_always killall swaybg
 exec_always swaybg -m fill -i ~/Pictures/Wallpaper/cool-purple-bg.jpg
 
 # Lock the screen
@@ -67,9 +70,10 @@ bindsym $mod+Shift+Return exec thunar
 bindsym $mod+Shift+q kill
 
 # start firefox
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave
 
-bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+Shift+d exec "rofi -show run"
 # bindsym $mod+d exec "emacsclient -cF '((visibility . nil))' -e '(emacs-counsel-launcher)'"
 
 # change focus

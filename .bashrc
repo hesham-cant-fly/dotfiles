@@ -18,9 +18,9 @@ setxkbmap -option 'grp:alt_shift_toggle'
 
 export PATH="/home/hesham/.local/bin:$PATH"
 export PATH="/home/hesham/zls/zig-out/bin:$PATH"
+export PATH="/home/hesham/lsp/ols/:$PATH"
 # export PATH="/home/hesham/v-analyzer/bin:$PATH"
 
-fish
 . "/home/hesham/.deno/env"
 
 # >>> juliaup initialize >>>
