@@ -4,7 +4,8 @@
 #+BEGIN_SRC bash
 cd ~
 git clone https://github.com/hesham-cant-fly/dotfiles
-# Install stow
-sudo pacman -S stow
+# Install stow, git and some dependancy
+sudo pacman -S stow git
+git submodule init
 stow --adopt .
 #+END_SRC
