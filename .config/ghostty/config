@@ -1,6 +1,6 @@
 title = "Hello watcher!"
-
-theme = "3024 Night"
+font-size = 15
+theme = vesper
 gtk-titlebar = true
 cursor-opacity = 1
 cursor-text = #191724
