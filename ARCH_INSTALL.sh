@@ -40,7 +40,7 @@ echo "============== INSTALLING OTHER PACKAGES =============="
 echo "======================================================="
 
 # TODO: Install eww, and some of the things that needed in your hyprland config
-sudo pacman -S zsh hyprland fzf ghostty
+sudo pacman -S zsh hyprland fzf ghostty starship
 
 echo "    => INSTALLED zsh hyprland fzf ghostty!"
 

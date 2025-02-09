@@ -1,13 +1,10 @@
 title = "Hello watcher!"
 font-size = 15
-theme = vesper
+theme = iTerm2 Dark Background
+# theme = Adventure
 gtk-titlebar = true
 cursor-opacity = 1
-cursor-text = #191724
-cursor-color = #31748f
-background = #282c34
-background-opacity = 1
+background-opacity = 0.9
 background-blur-radius = 20
-foreground = #ffffff
 
 font-family = "JetBrainsMono Nerd Font"
