@@ -63,11 +63,12 @@ alias nvim-conf="cd ~/.config/nvim/"
 
 # alias ls='nnn -de'
 alias ll='ls -l'
-alias la='la -a'
+alias la='ls -a'
 alias grep='grep --color=auto'
 alias emacs='emacsclient -a "doom run"'
 alias emacs-nw='emacsclient -a "doom run -nw" -nw'
 alias edit='emacs-nw '
+alias fetch='fastfetch --logo arch_small --config examples/8.jsonc'
 
 # Variables
 export PATH="/home/hesham/go/bin:$PATH"
