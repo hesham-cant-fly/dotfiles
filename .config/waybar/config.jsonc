@@ -4,11 +4,11 @@
   // "width": 1280, // Waybar width
   // Choose the order of the modules
   "modules-left": [
-    "sway/workspaces"
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "custom/music",
-    "sway/window"
+    "hyprland/window"
   ],
   "modules-right": [
     "pulseaudio",
@@ -16,21 +16,21 @@
     "battery",
     "clock",
     "tray",
-    "custom/lock",
+    // "custom/lock",
     "custom/power"
   ],
   "tray": {
     "icon-size": 21,
     "spacing": 10
   },
-  "sway/window": {
-    "tooltip": false,
+  "hyprland/window": {
+    "tooltip": true,
     "icon": true,
     "icon-size": 20,
     "format": "{title}",
     "show-focused-workspace-name": true
   },
-  "sway/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
