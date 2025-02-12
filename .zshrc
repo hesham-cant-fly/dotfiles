@@ -55,7 +55,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias za9za9="echo ZA9ZA9"
 alias cls=clear
-alias fastfetch="fastfetch --logo arch_small --config examples/8.jsonc"
 alias pamcan=pacman
 
 alias home="cd ~"

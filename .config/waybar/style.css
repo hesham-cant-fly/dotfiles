@@ -27,7 +27,7 @@
   padding-right: calc(0.4rem + 3px);
 }
 
-#workspaces button.active {
+#workspaces button.focused {
   background-color: @surface1;
   color: @sky;
   border-radius: 1rem;
