@@ -21,7 +21,7 @@ export PATH="/home/hesham/zls/zig-out/bin:$PATH"
 export PATH="/home/hesham/lsp/ols/:$PATH"
 # export PATH="/home/hesham/v-analyzer/bin:$PATH"
 
-. "/home/hesham/.deno/env"
+# . "/home/hesham/.deno/env"
 
 # >>> juliaup initialize >>>
 

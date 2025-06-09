@@ -9,3 +9,15 @@ sudo pacman -S stow git
 git submodule init
 stow --adopt .
 #+END_SRC
+
+
+#+BEGIN_SRC lua
+  {
+    dir = "~/Documents/Projects/scratch-buffer",
+    name = "scratch-buffer",
+    opts = {}
+  }
+#+END_SRC
+
+
+

@@ -1,24 +1,73 @@
 # version: 1.0.0
 
+
+# ~/.config/starship.toml
+# Get editor completions based on the config schema
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
 
-[shlvl]
-disabled = true
-threshold = 1
-symbol = "↕ "
+format = "$directory$character"
 
-[shell]
-disabled = false
-bash_indicator = ""
-fish_indicator = "󰈺"
-unknown_indicator = ''
-style = 'fg:#4444BB'
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = "[➜](bold red)"
 
 [os]
-disabled = false
-format = "[$symbol]($style) "
-style = "fg:#4444BB"
+disabled = true
+format = "$symbol"
 
 [os.symbols]
-Ubuntu = ""
-Arch = "󰣇"
+Arch = "[ ](fg:bright-blue)"
+Debian = "[ ](fg:red)"
+EndeavourOS = "[ ](fg:purple)"
+Fedora = "[ ](fg:blue)"
+NixOS = "[ ](fg:bright-white)"
+openSUSE = "[ ](fg:green)"
+SUSE = "[ ](fg:green)"
+
+
+[directory]
+format = "[$path](fg:#AAAAAA) "
+read_only = "  "
+truncation_length = 4
+truncation_symbol = "~/…/"
+truncate_to_repo = true
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+"Projects" = "󱌢 "
+"School" = "󰑴 "
+"www" = ""
+".config" = " "
+"dotfiles" = " "
+
+[git_branch]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[java]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[aws]
+disabled = true
+

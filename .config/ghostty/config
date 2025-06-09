@@ -1,6 +1,6 @@
 title = "Hello watcher!"
 font-size = 15
-theme = iTerm2 Dark Background
+# theme = catppuccin-mocha
 # theme = Adventure
 gtk-titlebar = true
 cursor-opacity = 1

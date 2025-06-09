@@ -1,0 +1,38 @@
+//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+//@theme "/home/hesham/.local/share/rofi/themes/spotlight.rasi"
+//@theme "/home/hesham/.local/share/rofi/themes/windows11-grid-light.rasi"
+//@theme "/usr/share/rofi/themes/iggy.rasi"
+//@theme "/home/hesham/.local/share/rofi/themes/rounded-purple-dark.rasi"
+
+
+configuration {
+    modes : [ run, drun, keys, combi ];
+    combi-mode : [ window, drun, run ];
+}
+
+//@theme "gruvbox-dark-hard"
+@import "catppuccin-mocha.rasi"
+
+entry {
+    placeholder : "Search for an app.";
+    cursor : pointer;
+}
+
+element {
+    orientation : horizontal;
+    children : [ element-icon, element-text ];
+    spacing : 10px;
+}
+
+element-icon {
+    size: 2em;
+}
+
+entry, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    cursor-color: rgb(220, 20, 60);
+    cursor-width: 10px;
+}
