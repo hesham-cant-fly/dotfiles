@@ -1,0 +1,107 @@
+@import "mocha.css";
+
+* {
+  font-family:
+    "JetBrainsMono Nerd Font",
+    FantasqueSansMono Nerd Font;
+  font-weight: 900;
+  font-size: 12px;
+  background: transparent;
+}
+
+#waybar {
+  background: transparent;
+  color: white;
+  background-color: #111111;
+  margin: 5px 5px;
+}
+
+#workspaces {
+  border-radius: 0;
+  background-color: transparent;
+}
+
+#workspaces button {
+  border-radius: 0;
+  color: @text;
+  border-bottom: 3px solid @text;
+  margin: 0 -1px;
+}
+
+#workspaces button.active {
+  color: @red;
+  border-bottom: 3px solid @red;
+}
+
+#workspaces button:hover {
+  background-color: @surface2;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#window {
+  color: @text;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  padding: 0 12px;
+  margin: 0 4px;
+}
+
+#clock {
+  color: @blue;
+  border-bottom: solid 2.5px @blue;
+}
+
+#battery {
+  color: @green;
+  border-bottom: solid 2.5px @green;
+}
+
+#battery.charging {
+  color: @green;
+  border-bottom: solid 2.5px @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+  border-bottom: solid 2.5px @red;
+}
+
+#backlight {
+  color: @yellow;
+  border-bottom: solid 2.5px @yellow;
+}
+
+#backlight,
+#battery {
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-bottom: solid 2.5px @maroon;
+}
+
+#custom-music {
+  color: @mauve;
+}
+
+#custom-lock {
+  color: @lavender;
+}
+
+#custom-power {
+  color: @red;
+}
+
+#tray {
+}

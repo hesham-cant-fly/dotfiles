@@ -1,40 +1,152 @@
 {
-  "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
+  "layer": "top",
+  "output": [
+    "HDMI-A-1",
+    "eDP-1"
+  ],
   "modules-left": [
-    "hyprland/workspaces"
+    "custom/launcher",
+    "backlight",
+    "wireplumber",
+    "cpu",
+    "mpris"
   ],
   "modules-center": [
-    // "custom/music",
-    "hyprland/window"
+    "hyprland/workspaces",
+    "clock"
   ],
   "modules-right": [
-    "pulseaudio",
-    "backlight",
-    "battery",
-    "clock",
+    "wlr/taskbar",
+    "custom/bluetooth",
+    "network",
+    "memory",
     "tray",
-    // "custom/lock",
-    "custom/power"
+    "battery",
+    "custom/updates",
+    "custom/quit"
   ],
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
+  "wireplumber": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "on-click": "pavucontrol",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
   },
-  "hyprland/window": {
+  "network": {
     "tooltip": true,
-    "icon": true,
-    "icon-size": 20,
-    "format": "{title}",
-    "show-focused-workspace-name": true
+    "format-wifi": " ",
+    "rotate": 0,
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 2,
+    "on-click": "~/.config/rofi/iwmenu/iwmenu-waybar.sh"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "rotate": 0,
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      ""
+    ],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "rotate": 0,
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "custom/quit": {
+      "format": "󰈆",
+      "on-click": "hyprctl dispatch exit"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%d-%m-%Y}",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "on-click": "kitty -- btop",
+    "tooltip": true
+  },
+  "tray": {
+    "icon-size": 16,
+    "rotate": 0,
+    "spacing": 5
+  },
+  "memory": {
+    "interval": 30,
+    "format": "  {used:0.1f}G/{total:0.1f}G",
+    "max-length": 20
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "sh ~/.config/rofi/launcher/launcher.sh",
+    "on-click-right": "killall rofi"
+  },
+  "custom/bluetooth": {
+    "format": " {}",
+    "exec": "~/.config/waybar/bluetooth-display.sh",
+    "interval": 10,
+    "on-click": "blueman-manager",
+    "return-type": "plain",
+    "tooltip": false,
+    "max-length": 25
+  },
+  "mpris": {
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-stopped": "",
+    "ignore-list": [
+      "vesktop"
+    ],
+    "player-icons": {
+      "brave": "",
+      "default": "",
+      "spotify": "",
+      "vlc": "",
+      "mpv": ""
+    },
+    "status-icons": {
+      "paused": "▶",
+      "playing": "⏸"
+    },
+    "max-length": 40,
+    "tooltip": true
   },
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": " {icon} ",
+    "format": "{icon}",
+    "on-click": "activate",
     "format-icons": {
       "1": "1",
       "2": "2",
@@ -46,86 +158,45 @@
       "8": "8",
       "9": "9",
       "10": "10",
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
+      "11": "11",
+      "12": "12",
+      "13": "13",
+      "14": "14",
+      "15": "15",
+      "16": "16",
+      "17": "17",
+      "18": "18",
+      "19": "19",
+      "20": "20"
+    },
+    "active": "",
+    "sort-by-number": true
   },
-  "custom/music": {
-    "format": "  {}",
-    "escape": true,
-    "interval": 5,
+  "custom/updates": {
+    "exec": "systemupdate.sh",
+    "return-type": "json",
+    "format": "{}",
+    "rotate": 0,
+    "on-click": "hyprctl dispatch exec 'systemupdate.sh up'",
+    "interval": 43200,
     "tooltip": true,
-    "exec": "playerctl metadata --format='{{ title }}'",
-    "on-click": "playerctl play-pause",
-    "max-length": 50
+    "signal": 20
   },
-  "clock": {
-    "timezone": "Africa/Morocco",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:%d/%m/%Y}",
-    "format": " {:%H:%M}"
-  },
-  "backlight": {
-    "device": "intel_backlight",
+  "wlr/taskbar": {
     "format": "{icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
+    "icon-size": 16,
+    "icon-theme": "Gruvbox-Dark-Hard",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "kitty",
+      "vesktop"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {capacity}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        " "
-      ]
-    },
-    "on-click": "pavucontrol"
-  },
-  "custom/lock": {
-    "tooltip": false,
-    "on-click": "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown",
-    "format": " ",
-  },
-  "custom/power": {
-    "tooltip": false,
-    "on-click": "logout &",
-    "format": "󰗽 "
+    "markup": true,
+    "all-outputs": false
   }
 }

@@ -11,7 +11,7 @@ configuration {
 }
 
 //@theme "gruvbox-dark-hard"
-@import "catppuccin-mocha.rasi"
+//@import "catppuccin-mocha.rasi"
 
 entry {
     placeholder : "Search for an app.";
