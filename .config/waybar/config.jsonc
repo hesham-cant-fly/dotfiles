@@ -8,8 +8,8 @@
     "custom/launcher",
     "backlight",
     "wireplumber",
-    "cpu",
-    "mpris"
+    "cpu"
+    // "mpris"
   ],
   "modules-center": [
     "hyprland/workspaces",
