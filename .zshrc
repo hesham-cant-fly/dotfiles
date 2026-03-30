@@ -120,7 +120,6 @@ TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(opam env)"
 
 fastfetch --config examples/8.jsonc
 
@@ -132,3 +131,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+# >>> xmake >>>
+test -f "/home/hesham/.xmake/profile" && source "/home/hesham/.xmake/profile"
+# <<< xmake <<<

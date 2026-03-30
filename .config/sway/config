@@ -1,5 +1,8 @@
-# Mod key
+# variables
 set $mod Mod4
+set $code-editor emacsclient -a "emacs" -n -c
+set $terminal kitty
+set $fileManager thunar
 
 # Window fonts
 font pango:monospace 8
@@ -37,9 +40,7 @@ for_window {
 }
 
 exec swaync
-exec com.discordapp.Discord
 exec swww-daemon
-exec autotiling-rs
 exec swayidle -w \
     timeout 600 'swaylock -f -i $lockscreenbg' \
     timeout 900 'swaymsg "output * dpms off"' \
@@ -60,104 +61,60 @@ exec --no-startup-id nm-applet
 floating_modifier $mod
 tiling_drag enable
 
-# start a terminal
-bindsym $mod+Return exec kitty
-
-bindsym $mod+m exec emacsclient -c -a "emacs -c"
-bindsym $mod+Shift+Return exec thunar
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start firefox
-bindsym $mod+b exec brave
-
-bindsym $mod+d exec "rofi -show drun"
-bindsym $mod+Shift+d exec "rofi -show run"
-# bindsym $mod+d exec "emacsclient -cF '((visibility . nil))' -e '(emacs-counsel-launcher)'"
+bindsym $mod+r exec "rofi -show drun"
+bindsym $mod+Shift+r exec "rofi -show run"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
+# splits
+# bindsym $mod+h split h
+# bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
+bindsym $mod+b exec $browser
+bindsym $mod+q exec $terminal
+bindsym $mod+c kill
+bindsym $mod+m exec $code-editor
+bindsym $mod+e exec $fileManager
+bindsym $mod+v floating toggle
+bindsym $mod+j layout toggle split
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+w layout stacking
 
-# toggle tiling / floating
-bindsym $mod+Shift+p floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+p focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+l exec hyprlock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
-bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -B 'Yes, exit sway' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+Alt+r mode "resize"
 
 include ~/.config/sway/config.d/*
 
